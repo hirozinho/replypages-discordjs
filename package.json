@@ -1,0 +1,17 @@
+{
+  "name": "replypages-discordjs",
+  "version": "1.0.1",
+  "description": "A module to allow page by page embeds in discord.js using reactions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord.js"
+  ],
+  "author": "NicksWorld <nickmcdaniel00@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^11.3.0"
+  }
+}
