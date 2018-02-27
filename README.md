@@ -1,7 +1,5 @@
 ***ReplyPages-discordjs***
 
-**install with npm install replypages-discordjs**
-
 This module is used to make simple interfaces that you can flip through by adding and removing reactions.
 
 The buttons are as follows:
@@ -54,4 +52,4 @@ client.on('message', (message) => { //When a message is recived
         message.replyPages(embeds); //send the array of embeds using <message>.replyPages(<embed array>)
     }
 });
-});```
+```
