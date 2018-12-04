@@ -22,27 +22,27 @@ module.exports.createListener = function(client){
     client.on('messageReactionAdd', (reaction, user) => {
         if(pageEmbeds[reaction.message.id]){
             if(pageEmbeds[reaction.message.id].user.id==user.id){
-                if(reaction.message.reactions.get('⬅').users.find('id', user.id)!=undefined){
+                if(reaction.message.reactions.get('⬅').users.find(val => val.id === user.id)!=undefined){
                     if(pageEmbeds[reaction.message.id].currentPage!=0){
                         pageEmbeds[reaction.message.id].currentPage--;
                         reaction.message.edit(pageEmbeds[reaction.message.id].embeds[pageEmbeds[reaction.message.id].currentPage]);
                     }
                 }
-                if(reaction.message.reactions.get('➡').users.find('id', user.id)!=undefined){
+                if(reaction.message.reactions.get('➡').users.find(val => val.id === user.id)!=undefined){
                     if(pageEmbeds[reaction.message.id].embeds.length!=pageEmbeds[reaction.message.id].currentPage + 1){
                         pageEmbeds[reaction.message.id].currentPage++;
                         reaction.message.edit(pageEmbeds[reaction.message.id].embeds[pageEmbeds[reaction.message.id].currentPage]);
                     }
                 }
-                if(reaction.message.reactions.get('⏹').users.find('id', user.id)!=undefined){
+                if(reaction.message.reactions.get('⏹').users.find(val => val.id === user.id)!=undefined){
                     reaction.message.react('🛑')
                     pageEmbeds[reaction.message.id] = undefined;
                 }
-                if(reaction.message.reactions.get('⏪').users.find('id', user.id)!=undefined){
+                if(reaction.message.reactions.get('⏪').users.find(val => val.id === user.id)!=undefined){
                     pageEmbeds[reaction.message.id].currentPage = 0;
                     reaction.message.edit(pageEmbeds[reaction.message.id].embeds[pageEmbeds[reaction.message.id].currentPage]);
                 }
-                if(reaction.message.reactions.get('⏩').users.find('id', user.id)!=undefined){
+                if(reaction.message.reactions.get('⏩').users.find(val => val.id === user.id)!=undefined){
                     pageEmbeds[reaction.message.id].currentPage = pageEmbeds[reaction.message.id].embeds.length - 1;
                     reaction.message.edit(pageEmbeds[reaction.message.id].embeds[pageEmbeds[reaction.message.id].currentPage]);
                 }
